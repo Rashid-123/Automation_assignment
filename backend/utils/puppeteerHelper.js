@@ -36,7 +36,7 @@ async function startScraper(userInput) {
         );
         // console.log("Available districts:", options);
 
-        // Find the matching Hindi district
+        // Find the matching district
         const selectedOption = options.find(opt => opt.text === userInput.district);
 
         if (selectedOption) {
@@ -145,50 +145,6 @@ async function startScraper(userInput) {
         let buttons = await page.$$("input[value='IndexII']");
         console.log(`Found ${buttons.length} buttons.`);
 
-        // for (let i = 0; i < buttons.length; i++) {
-        //     console.log(`Clicking 'IndexII' button ${i + 1}/${buttons.length}...`);
-
-        //     // Re-select buttons before each click to avoid "detached from document" errors
-        //     buttons = await page.$$("input[value='IndexII']");
-
-        //     if (buttons[i]) {
-        //         // Open new tab by clicking the button
-        //         const [newTarget] = await Promise.all([
-        //             browser.waitForTarget((target) => target.opener() === page.target()),
-        //             buttons[i].click(),
-        //         ]);
-
-        //         const newPage = await newTarget.page();
-        //         if (!newPage) {
-        //             console.error(`❌ New tab did not open for button ${i + 1}`);
-        //             continue;
-        //         }
-
-        //         console.log("New Tab Opened. Waiting for Page to Load...");
-        //         await newPage.waitForSelector("body", { visible: true, timeout: 60000 });
-
-        //         // 📌 Convert the Opened Page into a PDF
-        //         console.log("Generating PDF from the page...");
-        //         const pdfPath = path.join(__dirname, `saved_page_${i + 1}.pdf`);
-        //         await newPage.pdf({
-        //             path: pdfPath,
-        //             format: "A4",
-        //             printBackground: true,
-        //         });
-
-        //         console.log(`📄 PDF Saved: ${pdfPath}`);
-
-        //         // Close the new tab to free up memory
-        //         await newPage.close();
-        //         console.log(`✔ Closed new tab for button ${i + 1}`);
-        // } else {
-        //     console.error(`❌ Button ${i + 1} not found.`);
-        // }
-        // }
-
-        // console.log("✅ All PDFs generated successfully.");
-
-        // ---------------------------------------------------------------
         for (let i = 0; i < buttons.length; i++) {
             buttons = await page.$$("input[value='IndexII']");
             if (buttons[i]) {

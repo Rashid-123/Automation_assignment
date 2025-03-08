@@ -62,11 +62,6 @@ npm run dev
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**.
-
----
-
 ## 💡 Author
 **Rashid-123**  
 GitHub: [@Rashid-123](https://github.com/Rashid-123)  
